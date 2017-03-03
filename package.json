@@ -4,7 +4,7 @@
   "description": "Sparta Global Project 1",
   "main": "index.js",
   "scripts": {
-    "start": "bower install",
+    "start": "npm install && bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
