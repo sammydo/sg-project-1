@@ -1,0 +1,38 @@
+body .container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  margin-left: 349px;
+  margin-top: 2px; }
+
+body #game_score {
+  display: flex;
+  width: 905px;
+  justify-content: center; }
+
+body .opacity {
+  opacity: 0;
+  transition: opacity 0.5s linear; }
+
+body .box_one {
+  width: 100px;
+  height: 100px;
+  background: red;
+  margin-right: 10px;
+  margin-bottom: 10px; }
+
+body .box_two {
+  width: 100px;
+  height: 100px;
+  background: yellow; }
+
+body .box_three {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  margin-right: 10px; }
+
+body .box_four {
+  width: 100px;
+  height: 100px;
+  background: green; }
