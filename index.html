@@ -19,27 +19,41 @@
   <script src="js/main.js" charset="utf-8"></script>
   <!-- <script src="js/test.js" charset="utf-8"></script> -->
 
-  <title>sg-Project-1</title>
+  <title>Simon Says</title>
 </head>
 <body>
 
-  <p>Sparta Global Project 1</p>
+  <p>Simon Says</p>
+
+  <header>
+    <button id="show-action" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+    Show Action
+</button>
+  </header>
 
   <div id="game_score">
     <h1 id="score" class="score-display white-border">0</h1>
   </div>
 
   <div class="container">
-
-    <div id="red" class="game_color box_one white-border"></div>
-    <div id="yellow" class="game_color box_two white-border"></div>
-    <div id="blue" class="game_color box_three white-border"></div>
-    <div id="green" class="game_color box_four white-border"></div>
-
+    <div class="white-border" id="game-steps">
+      <div id="step-btn">
+        <div id="red" class="game_color box_one white-border step-light"></div>
+      </div>
+      <div id="step-btn">
+        <div id="yellow" class="game_color box_two white-border step-light"></div>
+      </div>
+      <div id="step-btn">
+        <div id="blue" class="game_color box_three white-border step-light"></div>
+      </div>
+      <div id="step-btn">
+        <div id="green" class="game_color box_four white-border step-light"></div>
+      </div>
+</div>
   </div>
-
+<div class="btn-container">
 <button class="mdl-button mdl-js-button mdl-button--raised white-border" id="start-btn">Start</button>
 <button class="mdl-button mdl-js-button mdl-button--raised white-border" id="reset-btn">Reset</button>
-
+</div>
 </body>
 </html>

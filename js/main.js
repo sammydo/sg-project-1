@@ -51,55 +51,67 @@ $(document).ready(function(){
     console.log(simon.currentGame);
     fadeNplay();
     playerMove();
+
   }
 
 
-  function flashElement($element) {
-    $element.fadeOut(150).fadeIn(250);
-  }
+  // function flashElement($element, callback) {
+  //   $element
+  //      .animate({
+  //        opacity: 1,
+  //        duration: 200
+  //      })
+  //      .animate({
+  //        opacity: 0.7,
+  //        duration: 200
+  //      }, callback);
+  // }
 
 
-  function fadeNplay(){
+  function fadeNplay(callback){
     // console.log('fadeNplay: currentGame:', simon.currentGame);
     for (var i=0; i < simon.currentGame.length; i++) {
-    console.log(simon.currentGame[i]);
-      simon.playColor([i]);
-      // flashElement(tot);
-      if(simon.currentGame[i] === 'red'){
-        flashElement($('#red'));
-        console.log('red');
-      } else if (simon.currentGame[i.color] === ('yellow')){
-console.log('yellow');
-        simon.playColor('yellow');
-        flashElement($('#yellow'));
-      } else if (simon.currentGame[i.color] === ('blue')){
-        console.log('blue');
-        simon.playColor('blue');
-        flashElement($('#blue'));
-      } else if (simon.currentGame[i.color] === ('green')){
-         console.log('green');
-        simon.playColor('green');
-        flashElement($('#green'));
-      }
+    // console.log(simon.currentGame[i]);
+      (function(i) {
+        window.setTimeout(function () {
+
+          var currentColorName = simon.currentGame[i].color;
+          simon.playColor(currentColorName);
+        }, 1000 * i);
+
+      })(i);
+
+
+//       if(simon.currentGame[0] === 'red'){
+//         flashElement($('#red'), callback);
+//         // console.log('red');
+//       } else if (simon.currentGame[0] === ('yellow')){
+// // console.log('yellow');
+//         simon.playColor('yellow');
+//         flashElement($('#yellow'), callback);
+//       } else if (simon.currentGame[0] === ('blue')){
+//         // console.log('blue');
+//         simon.playColor('blue');
+//         flashElement($('#blue'), callback);
+//       } else if (simon.currentGame[0] === ('green')){
+//         //  console.log('green');
+//         simon.playColor('green');
+//         flashElement($('#green'), callback);
+//       }
     }
 
 
 
-
-    // JSON.stringify(simon.currentGame).forEach(function(entry) {
-    //     console.log(entry);
-    // });
-
-    // console.log( .currentGame);
-    // console.log(Object.keys(simon.currentGame));
-
   }
 
   function playerMove(){
-    $('.container').children().click(function(){
+    $('.container .game_color').click(function(){
+
       var clickedBoxColor = $(this).attr('id');
+      // simon.playColor(clickedBoxColor)
       var clickedSimonButton = simon.getButtonForColor(clickedBoxColor);
       simon.attempts.push(clickedSimonButton);
+
       console.log('attempts:', simon.attempts, 'currentGame:', simon.currentGame);
       if(JSON.stringify(simon.attempts) === JSON.stringify(simon.currentGame)){
         LevelCheck();
@@ -118,7 +130,6 @@ console.log('yellow');
   function LevelCheck(){
     if(JSON.stringify(simon.attempts) === JSON.stringify(simon.currentGame) && simon.attempts.length === simon.currentGame.length){
       setTimeout(function(){
-        simon.attempts = [];
         addLevel();
       }, 1000);
     }    else{

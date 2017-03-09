@@ -26,9 +26,20 @@ function Simon() {
   this.currentGame = [];
 }
 
-Simon.prototype.playColor = function (color) {
+
+Simon.prototype.playColor = function (color, callback) {
   if (this.buttons[color]) {
+    console.log(color);
     this.buttons[color].audio.play();
+    $('#' + color)
+       .animate({
+         opacity: 1,
+         duration: 200
+       })
+       .animate({
+         opacity: 0.7,
+         duration: 200
+       }, callback);
   }
 };
 
