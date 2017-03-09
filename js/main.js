@@ -15,26 +15,27 @@ $(document).ready(function(){
 // Reset Button
   $('#reset-btn').on('click', function() {
     if ($(this).html() === 'Reset') {
-      resetGame();
+      resetGame(); // Calls reset Game
     }
   });
 
-
+// Sets all game paramters as empty
   function resetGame() {
     simon.currentGame = [];
     simon.attempts = [];
     console.log(simon.currentGame, simon.attempts);
-    $('#score').html('0');
+    $('#score').html('0'); // Score 0
   }
 
-
+// new Game sets game paramters as empty and level
   function newGame() {
     simon.currentGame = [];
     simon.attempts = [];
     level = 0;
-    addLevel();
+    addLevel(); // Calls add level
 
   }
+
 
   function addLevel() {
     level++;
@@ -109,4 +110,27 @@ $(document).ready(function(){
     }
   }
 
+
+
+/// ---------------------- Modal ---------------------
+
+  (function() {
+    'use strict';
+    var dialogButton = document.querySelector('.mdl-button');
+    var dialog = document.querySelector('#dialog');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    dialogButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('button:not([disabled])')
+  .addEventListener('click', function() {
+    dialog.close();
+  });
+  }());
+
 });
+
+
+// ------------------ Modal ---------------
