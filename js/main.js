@@ -84,7 +84,8 @@ $(document).ready(function(){
         LevelCheck();
       }      else{
         simon.attempts.splice(-1 , 1);
-        console.log('nooo');
+        // console.log('nooo');
+
       }
     });
   }
@@ -114,7 +115,7 @@ $(document).ready(function(){
 
 /// ---------------------- Modal ---------------------
 
-  (function() {
+  (function modal() {
     'use strict';
     var dialogButton = document.querySelector('.mdl-button');
     var dialog = document.querySelector('#dialog');
@@ -131,6 +132,5 @@ $(document).ready(function(){
   }());
 
 });
-
 
 // ------------------ Modal ---------------

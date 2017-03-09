@@ -16,7 +16,7 @@ body {
     margin-left: 580px;
     margin-top: 31px; }
   body .game_color {
-    opacity: 0.4; }
+    opacity: 0.29; }
   body .game_color:hover {
     opacity: 1;
     cursor: pointer; }
@@ -24,10 +24,7 @@ body {
     display: flex;
     width: 905px;
     justify-content: center;
-    margin-top: 170px; }
-  body .opacity {
-    opacity: 0;
-    transition: opacity 0.5s linear; }
+    margin-top: 50px; }
   body .box_one {
     width: 100px;
     height: 100px;
@@ -106,3 +103,6 @@ header {
   justify-content: flex-end; }
   header #show-dialog {
     margin-right: 20px; }
+
+h1 {
+  margin-left: 560px; }

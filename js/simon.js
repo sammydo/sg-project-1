@@ -37,7 +37,7 @@ Simon.prototype.playColor = function (color, callback) {
          duration: 200
        })
        .animate({
-         opacity: 0.7,
+         opacity: 0.29,
          duration: 200
        }, callback);
   }
