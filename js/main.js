@@ -5,13 +5,14 @@ $(document).ready(function(){
   var simon = new Simon();
   var level = 0;
 
+// Start Button
   $('#start-btn').on('click', function() {
     if ($(this).html() === 'Start') {
-      newGame();
+      newGame(); //Runs new Game functions
     }
   });
 
-
+// Reset Button
   $('#reset-btn').on('click', function() {
     if ($(this).html() === 'Reset') {
       resetGame();
@@ -27,7 +28,6 @@ $(document).ready(function(){
   }
 
 
-//new game function setting the game to level 0 with an empty array
   function newGame() {
     simon.currentGame = [];
     simon.attempts = [];
@@ -55,19 +55,6 @@ $(document).ready(function(){
   }
 
 
-  // function flashElement($element, callback) {
-  //   $element
-  //      .animate({
-  //        opacity: 1,
-  //        duration: 200
-  //      })
-  //      .animate({
-  //        opacity: 0.7,
-  //        duration: 200
-  //      }, callback);
-  // }
-
-
   function fadeNplay(callback){
     // console.log('fadeNplay: currentGame:', simon.currentGame);
     for (var i=0; i < simon.currentGame.length; i++) {
@@ -78,31 +65,10 @@ $(document).ready(function(){
           var currentColorName = simon.currentGame[i].color;
           simon.playColor(currentColorName);
         }, 1000 * i);
-
       })(i);
-
-
-//       if(simon.currentGame[0] === 'red'){
-//         flashElement($('#red'), callback);
-//         // console.log('red');
-//       } else if (simon.currentGame[0] === ('yellow')){
-// // console.log('yellow');
-//         simon.playColor('yellow');
-//         flashElement($('#yellow'), callback);
-//       } else if (simon.currentGame[0] === ('blue')){
-//         // console.log('blue');
-//         simon.playColor('blue');
-//         flashElement($('#blue'), callback);
-//       } else if (simon.currentGame[0] === ('green')){
-//         //  console.log('green');
-//         simon.playColor('green');
-//         flashElement($('#green'), callback);
-//       }
     }
-
-
-
   }
+
 
   function playerMove(){
     $('.container .game_color').click(function(){
@@ -120,10 +86,6 @@ $(document).ready(function(){
         console.log('nooo');
       }
     });
-    // for (var i=0,  tot=simon.currentGame.length; i < tot; i++) {
-    //   console.log(simon.currentGame[i]);
-    //   // flashElement(tot);
-    // }
   }
 
 
