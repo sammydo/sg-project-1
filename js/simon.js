@@ -20,6 +20,7 @@ function Simon() {
       color: 'green',
       audio: this.greenAudio
     }
+
   };
   this.attempts = [];
   this.currentGame = [];
