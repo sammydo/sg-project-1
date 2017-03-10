@@ -49,7 +49,6 @@ $(document).ready(function(){
 
   function generateMove(){
     simon.currentGame.push(simon.getRandomButton());
-    console.log(simon.currentGame);
     fadeNplay();
     playerMove();
 
@@ -57,12 +56,9 @@ $(document).ready(function(){
 
 
   function fadeNplay(callback){
-    // console.log('fadeNplay: currentGame:', simon.currentGame);
     for (var i=0; i < simon.currentGame.length; i++) {
-    // console.log(simon.currentGame[i]);
       (function(i) {
         window.setTimeout(function () {
-
           var currentColorName = simon.currentGame[i].color;
           simon.playColor(currentColorName);
         }, 1000 * i);
@@ -75,24 +71,20 @@ $(document).ready(function(){
     $('.container .game_color').click(function(){
 
       var clickedBoxColor = $(this).attr('id');
-      // simon.playColor(clickedBoxColor)
       var clickedSimonButton = simon.getButtonForColor(clickedBoxColor);
       simon.attempts.push(clickedSimonButton);
-
-      console.log('attempts:', simon.attempts, 'currentGame:', simon.currentGame);
-      if(JSON.stringify(simon.attempts) === JSON.stringify(simon.currentGame)){
+      console.log(simon.attempts);
+      if(simon.attempts.length === simon.currentGame.length && JSON.stringify(simon.attempts) === JSON.stringify(simon.currentGame)){
         LevelCheck();
       }      else{
         simon.attempts.splice(-1 , 1);
-        // console.log('nooo');
-
       }
     });
   }
 
 
   function LevelCheck(){
-    if(JSON.stringify(simon.attempts) === JSON.stringify(simon.currentGame) && simon.attempts.length === simon.currentGame.length){
+    if(simon.attempts.length === simon.currentGame.length && JSON.stringify(simon.attempts) === JSON.stringify(simon.currentGame)){
       setTimeout(function(){
         addLevel();
       }, 1000);
@@ -107,7 +99,7 @@ $(document).ready(function(){
       setTimeout(function(){
         $('#score').removeClass('fadeOutDown').html('I win').addClass('fadeInDown');
       }, 201);
-      console.log('wonnn');
+    // console log won
     }
   }
 
